@@ -1,0 +1,12 @@
+Package: simmrcovpackage
+Type: Package
+Title: A Package For Running Stable Isotope Mixing Models With Covariates In R
+Version: 1.0
+Date: 2023-07-19
+Author: Emma Govan
+Maintainer: Emma Govan <emma.govan.2021@mumail.ie>
+Description: A package that allows for running of stable isotope mixing models 
+incorporating covariates. 
+License: GPL (>= 2)
+Imports: Rcpp (>= 1.0.10)
+LinkingTo: Rcpp
