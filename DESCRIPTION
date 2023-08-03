@@ -6,7 +6,37 @@ Date: 2023-07-19
 Author: Emma Govan
 Maintainer: Emma Govan <emma.govan.2021@mumail.ie>
 Description: A package that allows for running of stable isotope mixing models 
-incorporating covariates. 
+  incorporating covariates. 
 License: GPL (>= 2)
-Imports: Rcpp (>= 1.0.10)
-LinkingTo: Rcpp
+Encoding: UTF-8
+LazyData: TRUE
+Imports: Rcpp (>= 1.0.10),
+    compositions,
+    boot,
+    reshape2,
+    graphics,
+    stats,
+    viridis,
+    bayesplot,
+    checkmate,
+    Rcpp,
+    GGally,
+    checkmate
+Suggests: 
+    knitr,
+    rmarkdown,
+    readxl,
+    testthat,
+    covr,
+    vdiffr,
+    tibble,
+    ggnewscale
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2019-07-03 17:48:43 UTC; andrewparnell
+Repository: CRAN
+Date/Publication: 2019-07-03 18:20:03 UTC
+LinkingTo: Rcpp,
+    RcppArmadillo,
+    RcppDist,
+RoxygenNote: 7.2.3
