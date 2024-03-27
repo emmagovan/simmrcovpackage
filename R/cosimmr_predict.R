@@ -2,7 +2,7 @@
 #'
 #'
 #'
-#' @param simmr_out An object created via the function \code{\link{simmrcov_ffvb}}
+#' @param simmr_out An object created via the function \code{\link{cosimmr_ffvb}}
 #' @param x_pred A vector or matrix of covariate values that the user wishes
 #' to predict source proportions for, provided in the same order that the 
 #' original covariance matrix was
@@ -10,9 +10,9 @@
 #'
 #' @author Emma Govan <emma.govan.2021@mumail.ie>
 #'
-#' @seealso \code{\link{simmr_load}} for creating objects suitable for this
+#' @seealso \code{\link{cosimmr_load}} for creating objects suitable for this
 #' function,  and
-#' \code{\link{plot.simmr_output}} for plotting output.
+#' \code{\link{plot.cosimmr_output}} for plotting output.
 #'
 #' @references Andrew C. Parnell, Donald L. Phillips, Stuart Bearhop, Brice X.
 #' Semmens, Eric J. Ward, Jonathan W. Moore, Andrew L. Jackson, Jonathan Grey,
@@ -33,7 +33,7 @@
 #' data(geese_data_day1)
 #' simmr_1 <- with(
 #'   geese_data_day1,
-#'   simmr_load(
+#'   cosimmr_load(
 #'     mixtures = mixtures,
 #'     source_names = source_names,
 #'     source_means = source_means,
@@ -51,7 +51,7 @@
 #' simmr_1
 #'
 #' # FFVB run
-#' simmr_1_out <- simmrcov_ffvb(simmr_1)
+#' simmr_1_out <- cosimmr_ffvb(simmr_1)
 #'
 #' # Print it
 #' print(simmr_1_out)
@@ -79,7 +79,7 @@
 #' data(geese_data_day1)
 #' simmr_2 <- with(
 #'   geese_data_day1,
-#'   simmr_loadcov(
+#'   cosimmr_load(
 #'     formula = mixtures[1, , drop = FALSE] ~ c(1),
 #'     source_names = source_names,
 #'     source_means = source_means,
@@ -94,7 +94,7 @@
 #' plot(simmr_2)
 #'
 #' # FFVB run - automatically detects the single observation
-#' simmr_2_out <- simmr_ffvb(simmr_2)
+#' simmr_2_out <- cosimmr_ffvb(simmr_2)
 #'
 #' # Print it
 #' print(simmr_2_out)
@@ -110,99 +110,7 @@
 #' plot(simmr_2_out, type = "density")
 #' plot(simmr_2_out, type = "matrix")
 #'
-#' #####################################################################################
-#'
-#' # Data set 2: 3 isotopes (d13C, d15N and d34S), 30 observations, 4 sources
-#' data(simmr_data_2)
-#' simmr_3 <- with(
-#'   simmr_data_2,
-#'   simmr_load(
-#'     mixtures = mixtures,
-#'     source_names = source_names,
-#'     source_means = source_means,
-#'     source_sds = source_sds,
-#'     correction_means = correction_means,
-#'     correction_sds = correction_sds,
-#'     concentration_means = concentration_means
-#'   )
-#' )
-#'
-#' # Get summary
-#' print(simmr_3)
-#'
-#' # Plot 3 times
-#' plot(simmr_3)
-#' plot(simmr_3, tracers = c(2, 3))
-#' plot(simmr_3, tracers = c(1, 3))
-#' # See vignette('simmr') for fancier axis labels
-#'
-#' # FFVB run
-#' simmr_3_out <- simmr_ffvb(simmr_3)
-#'
-#' # Print it
-#' print(simmr_3_out)
-#'
-#' # Summary
-#' summary(simmr_3_out)
-#' summary(simmr_3_out, type = "quantiles")
-#' summary(simmr_3_out, type = "correlations")
-#'
-#' # Plot
-#' plot(simmr_3_out)
-#' plot(simmr_3_out, type = "boxplot")
-#' plot(simmr_3_out, type = "histogram")
-#' plot(simmr_3_out, type = "density")
-#' plot(simmr_3_out, type = "matrix")
-#'
-#' ################################################################
-#'
-#' # Data set 5 - Multiple groups Geese data from Inger et al 2006
-#'
-#' # Do this in raw data format - Note that there's quite a few mixtures!
-#' data(geese_data)
-#' simmr_5 <- with(
-#'   geese_data,
-#'   simmr_load(
-#'     mixtures = mixtures,
-#'     source_names = source_names,
-#'     source_means = source_means,
-#'     source_sds = source_sds,
-#'     correction_means = correction_means,
-#'     correction_sds = correction_sds,
-#'     concentration_means = concentration_means,
-#'     group = groups
-#'   )
-#' )
-#'
-#' # Plot
-#' plot(simmr_5,
-#'   xlab = expression(paste(delta^13, "C (\\u2030)", sep = "")),
-#'   ylab = expression(paste(delta^15, "N (\\u2030)", sep = "")),
-#'   title = "Isospace plot of Inger et al Geese data"
-#' )
-#'
-#' # Run MCMC for each group
-#' simmr_5_out <- simmr_ffvb(simmr_5)
-#'
-#' # Summarise output
-#' summary(simmr_5_out, type = "quantiles", group = 1)
-#' summary(simmr_5_out, type = "quantiles", group = c(1, 3))
-#' summary(simmr_5_out, type = c("quantiles", "statistics"), group = c(1, 3))
-#'
-#' # Plot - only a single group allowed
-#' plot(simmr_5_out, type = "boxplot", group = 2, title = "simmr output group 2")
-#' plot(simmr_5_out, type = c("density", "matrix"), grp = 6, title = "simmr output group 6")
-#'
-#' # Compare sources within a group
-#' compare_sources(simmr_5_out, source_names = c("Zostera", "U.lactuca"), group = 2)
-#' compare_sources(simmr_5_out, group = 2)
-#'
-#' # Compare between groups
-#' compare_groups(simmr_5_out, source = "Zostera", groups = 1:2)
-#' compare_groups(simmr_5_out, source = "Zostera", groups = 1:3)
-#' compare_groups(simmr_5_out, source = "U.lactuca", groups = c(4:5, 7, 2))
 #' }
-#'
 #' @export
 simmrcov_predict <- function(simmr_out,
                           x_pred,

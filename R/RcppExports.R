@@ -2,67 +2,67 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 dmvnrm_arma_fast <- function(x, mean, sigma, logd = TRUE) {
-    .Call('_simmrcovpackage_dmvnrm_arma_fast', PACKAGE = 'simmrcovpackage', x, mean, sigma, logd)
+    .Call('_cosimmr_dmvnrm_arma_fast', PACKAGE = 'cosimmr', x, mean, sigma, logd)
 }
 
 crossprod <- function(X) {
-    .Call('_simmrcovpackage_crossprod', PACKAGE = 'simmrcovpackage', X)
+    .Call('_cosimmr_crossprod', PACKAGE = 'cosimmr', X)
 }
 
 matmult <- function(x, y) {
-    .Call('_simmrcovpackage_matmult', PACKAGE = 'simmrcovpackage', x, y)
+    .Call('_cosimmr_matmult', PACKAGE = 'cosimmr', x, y)
 }
 
 rMVNormCpp <- function(n, mu, U) {
-    .Call('_simmrcovpackage_rMVNormCpp', PACKAGE = 'simmrcovpackage', n, mu, U)
+    .Call('_cosimmr_rMVNormCpp', PACKAGE = 'cosimmr', n, mu, U)
 }
 
 solvearma <- function(X) {
-    .Call('_simmrcovpackage_solvearma', PACKAGE = 'simmrcovpackage', X)
+    .Call('_cosimmr_solvearma', PACKAGE = 'cosimmr', X)
 }
 
 sim_thetacpp <- function(S, lambda, n_sources, n_tracers, n_cov) {
-    .Call('_simmrcovpackage_sim_thetacpp', PACKAGE = 'simmrcovpackage', S, lambda, n_sources, n_tracers, n_cov)
+    .Call('_cosimmr_sim_thetacpp', PACKAGE = 'cosimmr', S, lambda, n_sources, n_tracers, n_cov)
 }
 
 hfn <- function(theta, n_sources, n, n_cov, x_scaled) {
-    .Call('_simmrcovpackage_hfn', PACKAGE = 'simmrcovpackage', theta, n_sources, n, n_cov, x_scaled)
+    .Call('_cosimmr_hfn', PACKAGE = 'cosimmr', theta, n_sources, n, n_cov, x_scaled)
 }
 
 hcpp <- function(n_sources, n_isotopes, n_covariates, beta_prior, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, theta, y, c_0) {
-    .Call('_simmrcovpackage_hcpp', PACKAGE = 'simmrcovpackage', n_sources, n_isotopes, n_covariates, beta_prior, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, theta, y, c_0)
+    .Call('_cosimmr_hcpp', PACKAGE = 'cosimmr', n_sources, n_isotopes, n_covariates, beta_prior, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, theta, y, c_0)
 }
 
 log_q_cpp <- function(theta, lambda, n_sources, n_tracers, S, n_covariates) {
-    .Call('_simmrcovpackage_log_q_cpp', PACKAGE = 'simmrcovpackage', theta, lambda, n_sources, n_tracers, S, n_covariates)
+    .Call('_cosimmr_log_q_cpp', PACKAGE = 'cosimmr', theta, lambda, n_sources, n_tracers, S, n_covariates)
 }
 
 delta_lqltcpp <- function(lambda, theta, eps, n_sources, n_tracers, n_covariates, S) {
-    .Call('_simmrcovpackage_delta_lqltcpp', PACKAGE = 'simmrcovpackage', lambda, theta, eps, n_sources, n_tracers, n_covariates, S)
+    .Call('_cosimmr_delta_lqltcpp', PACKAGE = 'cosimmr', lambda, theta, eps, n_sources, n_tracers, n_covariates, S)
 }
 
 h_lambdacpp <- function(n_sources, n_isotopes, beta_prior, n_covariates, S, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, theta, y, lambda, x_scaled, c_0) {
-    .Call('_simmrcovpackage_h_lambdacpp', PACKAGE = 'simmrcovpackage', n_sources, n_isotopes, beta_prior, n_covariates, S, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, theta, y, lambda, x_scaled, c_0)
+    .Call('_cosimmr_h_lambdacpp', PACKAGE = 'cosimmr', n_sources, n_isotopes, beta_prior, n_covariates, S, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, theta, y, lambda, x_scaled, c_0)
 }
 
 cov_mat_cpp <- function(x, y) {
-    .Call('_simmrcovpackage_cov_mat_cpp', PACKAGE = 'simmrcovpackage', x, y)
+    .Call('_cosimmr_cov_mat_cpp', PACKAGE = 'cosimmr', x, y)
 }
 
 nabla_LB_cpp <- function(lambda, theta, n_sources, n_tracers, beta_prior, S, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c, c_0) {
-    .Call('_simmrcovpackage_nabla_LB_cpp', PACKAGE = 'simmrcovpackage', lambda, theta, n_sources, n_tracers, beta_prior, S, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c, c_0)
+    .Call('_cosimmr_nabla_LB_cpp', PACKAGE = 'cosimmr', lambda, theta, n_sources, n_tracers, beta_prior, S, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c, c_0)
 }
 
 control_var_cpp <- function(lambda, theta, n_sources, n_tracers, beta_prior, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c_0) {
-    .Call('_simmrcovpackage_control_var_cpp', PACKAGE = 'simmrcovpackage', lambda, theta, n_sources, n_tracers, beta_prior, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c_0)
+    .Call('_cosimmr_control_var_cpp', PACKAGE = 'cosimmr', lambda, theta, n_sources, n_tracers, beta_prior, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c_0)
 }
 
 LB_lambda_cpp <- function(theta, lambda, p, n_sources, n_isotopes, beta_prior, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c_0) {
-    .Call('_simmrcovpackage_LB_lambda_cpp', PACKAGE = 'simmrcovpackage', theta, lambda, p, n_sources, n_isotopes, beta_prior, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c_0)
+    .Call('_cosimmr_LB_lambda_cpp', PACKAGE = 'cosimmr', theta, lambda, p, n_sources, n_isotopes, beta_prior, n_covariates, x_scaled, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, c_0)
 }
 
 #' @export
 run_VB_cpp <- function(lambdastart, n_sources, n_tracers, n_covariates, n, beta_prior, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, x_scaled, S, P, beta_1, beta_2, tau, eps_0, t_W, c_prior) {
-    .Call('_simmrcovpackage_run_VB_cpp', PACKAGE = 'simmrcovpackage', lambdastart, n_sources, n_tracers, n_covariates, n, beta_prior, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, x_scaled, S, P, beta_1, beta_2, tau, eps_0, t_W, c_prior)
+    .Call('_cosimmr_run_VB_cpp', PACKAGE = 'cosimmr', lambdastart, n_sources, n_tracers, n_covariates, n, beta_prior, concentrationmeans, sourcemeans, correctionmeans, corrsds, sourcesds, y, x_scaled, S, P, beta_1, beta_2, tau, eps_0, t_W, c_prior)
 }
 

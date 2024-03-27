@@ -1,14 +1,14 @@
-#' Function to load in simmr data and check for errors
+#' Function to load in cosimmr data and check for errors
 #'
 #' This function takes in the mixture data, food source means and standard
 #' deviations, and (optionally) correction factor means and standard
 #' deviations, and concentration proportions. It performs some (non-exhaustive)
 #' checking of the data to make sure it will run through simmr. It outputs an
-#' object of class \code{simmr_input}.
+#' object of class \code{cosimmr_input}.
 #'
 #' For standard stable isotope mixture modelling, the mixture matrix will
 #' contain a row for each individual and a column for each isotopic value.
-#' \code{simmr} will allow for any number of isotopes and any number of
+#' \code{cosimmr} will allow for any number of isotopes and any number of
 #' observations, within computational limits. The source means/sds should be
 #' provided for each food source on each isotope. The correction means (usually
 #' trophic enrichment factors) can be set as zero if required, and should be of
@@ -42,23 +42,23 @@
 #' @import checkmate
 #'
 #'
-#' @return An object of class \code{simmr_input} with the following elements:
-#' \item{mixtures }{The mixture data} \item{source_neams }{Source means}
+#' @return An object of class \code{cosimmr_input} with the following elements:
+#' \item{mixtures }{The mixture data} \item{source_names }{Source means}
 #' \item{sources_sds }{Source standard deviations} \item{correction_means
 #' }{Correction means} \item{correction_sds }{Correction standard deviations}
 #' \item{concentration_means }{Concentration dependence means} \item{n_obs
 #' }{The number of observations} \item{n_tracers }{The number of
 #' tracers/isotopes} \item{n_sources }{The number of sources} \item{n_groups
 #' }{The number of groups}
-#' @author Andrew Parnell <andrew.parnell@@mu.ie>
-#' @seealso See \code{\link{simmr_mcmc}} for complete examples.
+#' @author Emma Govan <emma.govan.2021@@mumail.ie>
+#' @seealso See \code{\link{cosimmr_ffvb}} for complete examples.
 #' @examples
 #'
 #' # A simple example with 10 observations, 2 tracers and 4 sources
 #' data(geese_data_day1)
 #' simmr_1 <- with(
 #'   geese_data_day1,
-#'   simmr_loadcov(
+#'   cosimmr_load(
 #'     formula = mixtures ~ c(1,2,3,2,3,1,2,1,1),
 #'     source_names = source_names,
 #'     source_means = source_means,
@@ -77,8 +77,8 @@
 #'mixtures = as.matrix(model.frame(Formula(formula))[,1:ncol(source_means)])
 #'
 #' print(simmr_1)
-#' @export simmr_loadcov
-simmr_loadcov <- function(formula,
+#' @export cosimmr_load
+cosimmr_load <- function(formula,
                        source_names,
                        source_means,
                        source_sds,
@@ -248,7 +248,7 @@ simmr_loadcov <- function(formula,
     warning("Missing values provided for some values. Check your inputs")
   }
   
-  class(out) <- "simmr_input"
+  class(out) <- "cosimmr_input"
   
   return(out)
 }

@@ -1,15 +1,15 @@
 
-#' Run a \code{simmr_input} object through the Fixed Form Variational
+#' Run a \code{cosimmr_input} object through the Fixed Form Variational
 #' Bayes(FFVB) function
 #'
-#' This is the main function of simmr. It takes a \code{simmr_input} object
-#' created via \code{\link{simmr_load}}, runs it in fixed form
+#' This is the main function of cosimmr. It takes a \code{cosimmr_input} object
+#' created via \code{\link{cosimmr_load}}, runs it in fixed form
 #' Variational Bayes to determine the dietary proportions, and then
-#' outputs a \code{simmr_output} object for further analysis and plotting
-#' via \code{\link{summary.simmr_output}} and \code{\link{plot.simmr_output}}.
+#' outputs a \code{cosimmr_output} object for further analysis and plotting
+#' via \code{\link{summary.cosimmr_output}} and \code{\link{plot.cosimmr_output}}.
 #'
 
-#' @param simmr_in An object created via the function \code{\link{simmr_load}}
+#' @param simmr_in An object created via the function \code{\link{cosimmr_load}}
 #' @param prior_control A list of values including arguments named \code{mu_0}
 #' (prior for mu), and \code{sigma_0} (prior for sigma).
 #' @param ffvb_control A list of values including arguments named \code{n_output}
@@ -18,19 +18,19 @@
 #' and \code{beta_2} (adaptive learning weights), \code{tau} (threshold for
 #' exploring learning space), \code{eps_0} (fixed learning rate),
 #' \code{t_W} (rolling window size)
-#' @return An object of class \code{simmr_output} with two named top-level
-#' components: \item{input }{The \code{simmr_input} object given to the
+#' @return An object of class \code{cosimmr_output} with two named top-level
+#' components: \item{input }{The \code{cosimmr_input} object given to the
 #' \code{simmr_ffvb} function} \item{output }{A set of outputs produced by
 #' the FFVB function. These can be analysed using the
-#' \code{\link{summary.simmr_output}} and \code{\link{plot.simmr_output}}
+#' \code{\link{summary.cosimmr_output}} and \code{\link{plot.cosimmr_output}}
 #' functions.}
 #'
-#' @author Andrew Parnell <andrew.parnell@@mu.ie>, Emma Govan
+#' @author Emma Govan <emma.govan.2021@@mumail.ie>
 #'
-#' @seealso \code{\link{simmr_load}} for creating objects suitable for this
-#' function, \code{\link{plot.simmr_input}} for creating isospace plots,
-#' \code{\link{summary.simmr_output}} for summarising output, and
-#' \code{\link{plot.simmr_output}} for plotting output.
+#' @seealso \code{\link{cosimmr_load}} for creating objects suitable for this
+#' function, \code{\link{plot.cosimmr_input}} for creating isospace plots,
+#' \code{\link{summary.cosimmr_output}} for summarising output, and
+#' \code{\link{plot.cosimmr_output}} for plotting output.
 #'
 #' @references Andrew C. Parnell, Donald L. Phillips, Stuart Bearhop, Brice X.
 #' Semmens, Eric J. Ward, Jonathan W. Moore, Andrew L. Jackson, Jonathan Grey,
@@ -51,8 +51,8 @@
 #' data(geese_data_day1)
 #' simmr_1 <- with(
 #'   geese_data_day1,
-#'   simmr_load(
-#'     mixtures = mixtures,
+#'   cosimmr_load(
+#'     formula = mixtures ~ c(1,2,3,2,1,3,2,1,2),
 #'     source_names = source_names,
 #'     source_means = source_means,
 #'     source_sds = source_sds,
@@ -69,7 +69,7 @@
 #' simmr_1
 #'
 #' # FFVB run
-#' simmr_1_out <- simmrcov_ffvb(simmr_1)
+#' simmr_1_out <- cosimmr_ffvb(simmr_1)
 #'
 #' # Print it
 #' print(simmr_1_out)
@@ -134,8 +134,8 @@
 #' data(simmr_data_2)
 #' simmr_3 <- with(
 #'   simmr_data_2,
-#'   simmr_load(
-#'     mixtures = mixtures,
+#'   cosimmr_load(
+#'     formula = mixtures ~ c(rep(1, ncol(mixtures))),
 #'     source_names = source_names,
 #'     source_means = source_means,
 #'     source_sds = source_sds,
@@ -155,7 +155,7 @@
 #' # See vignette('simmr') for fancier axis labels
 #'
 #' # FFVB run
-#' simmr_3_out <- simmr_ffvb(simmr_3)
+#' simmr_3_out <- cosimmr_ffvb(simmr_3)
 #'
 #' # Print it
 #' print(simmr_3_out)
@@ -173,56 +173,9 @@
 #' plot(simmr_3_out, type = "matrix")
 #'
 #' ################################################################
-#'
-#' # Data set 5 - Multiple groups Geese data from Inger et al 2006
-#'
-#' # Do this in raw data format - Note that there's quite a few mixtures!
-#' data(geese_data)
-#' simmr_5 <- with(
-#'   geese_data,
-#'   simmr_load(
-#'     mixtures = mixtures,
-#'     source_names = source_names,
-#'     source_means = source_means,
-#'     source_sds = source_sds,
-#'     correction_means = correction_means,
-#'     correction_sds = correction_sds,
-#'     concentration_means = concentration_means,
-#'     group = groups
-#'   )
-#' )
-#'
-#' # Plot
-#' plot(simmr_5,
-#'   xlab = expression(paste(delta^13, "C (\\u2030)", sep = "")),
-#'   ylab = expression(paste(delta^15, "N (\\u2030)", sep = "")),
-#'   title = "Isospace plot of Inger et al Geese data"
-#' )
-#'
-#' # Run MCMC for each group
-#' simmr_5_out <- simmr_ffvb(simmr_5)
-#'
-#' # Summarise output
-#' summary(simmr_5_out, type = "quantiles", group = 1)
-#' summary(simmr_5_out, type = "quantiles", group = c(1, 3))
-#' summary(simmr_5_out, type = c("quantiles", "statistics"), group = c(1, 3))
-#'
-#' # Plot - only a single group allowed
-#' plot(simmr_5_out, type = "boxplot", group = 2, title = "simmr output group 2")
-#' plot(simmr_5_out, type = c("density", "matrix"), grp = 6, title = "simmr output group 6")
-#'
-#' # Compare sources within a group
-#' compare_sources(simmr_5_out, source_names = c("Zostera", "U.lactuca"), group = 2)
-#' compare_sources(simmr_5_out, group = 2)
-#'
-#' # Compare between groups
-#' compare_groups(simmr_5_out, source = "Zostera", groups = 1:2)
-#' compare_groups(simmr_5_out, source = "Zostera", groups = 1:3)
-#' compare_groups(simmr_5_out, source = "U.lactuca", groups = c(4:5, 7, 2))
-#' }
-#'
+#'}
 #' @export
-simmrcov_ffvb <- function(simmr_in,
+cosimmr_ffvb <- function(simmr_in,
                        prior_control = list(
                          mu_0 = rep(0, simmr_in$n_sources),
                          sigma_0 = 1,
@@ -374,7 +327,7 @@ simmrcov_ffvb <- function(simmr_in,
   
   output_all <- list(input = simmr_in, output = mylist)
   
-  class(output_all) <- c("simmr_output", "ffvb")
+  class(output_all) <- c("cosimmr_output", "ffvb")
   
   return(output_all)
 }

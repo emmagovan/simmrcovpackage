@@ -7,8 +7,7 @@
 posterior_predictive(simmr_out, group = 1, prob = 0.5, plot_ppc = TRUE)
 }
 \arguments{
-\item{simmr_out}{A run of the simmr model from \code{\link{simmr_mcmc}} or
-\code{\link{simmr_ffvb}}.}
+\item{simmr_out}{A run of the simmr model from \code{\link{cosimmr_ffvb}}.}
 
 \item{group}{Which group to run it for (currently only numeric rather than group names)}
 
@@ -20,18 +19,18 @@ posterior_predictive(simmr_out, group = 1, prob = 0.5, plot_ppc = TRUE)
 plot of posterior predictives and simulated values
 }
 \description{
-This function takes the output from \code{\link{simmr_mcmc}} or
-\code{\link{simmr_ffvb}} and plots the posterior predictive distribution
-to enable visualisation of model fit. The simulated posterior predicted
-values are returned as part of the object and can be saved for external use
+This function takes the output from  \code{\link{cosimmr_ffvb}} and plots 
+the posterior predictive distribution to enable visualisation of model fit.
+The simulated posterior predicted values are returned as part of the object 
+and can be saved for external use
 }
 \examples{
 \donttest{
 data(geese_data_day1)
 simmr_1 <- with(
   geese_data_day1,
-  simmr_load(
-    mixtures = mixtures,
+  cosimmr_load(
+    formula = mixtures ~ c(1,2,3,2,1,2,3,2,1),
     source_names = source_names,
     source_means = source_means,
     source_sds = source_sds,
@@ -47,8 +46,8 @@ plot(simmr_1)
 # Print
 simmr_1
 
-# MCMC run
-simmr_1_out <- simmr_mcmc(simmr_1)
+# FFVB run
+simmr_1_out <- cosimmr_ffvb(simmr_1)
 
 # Prior predictive
 post_pred <- posterior_predictive(simmr_1_out)

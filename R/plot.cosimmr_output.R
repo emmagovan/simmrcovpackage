@@ -1,7 +1,7 @@
 #This needs to be edited - not sure how we want to go about plots
 
 
-#' Plot the \code{simmr_input} data created from \code{simmr_load}
+#' Plot the \code{cosimmr_input} data created from \code{cosimmr_load}
 #'
 #' This function creates iso-space (AKA tracer-space or delta-space) plots.
 #' They are vital in determining whether the data are suitable for running in a
@@ -13,7 +13,7 @@
 #' the different pairs of the food sources. See the vignette for further
 #' details of richer plots.
 #'
-#' @param x An object created via the function \code{\link{simmr_load}}
+#' @param x An object created via the function \code{\link{cosimmr_load}}
 #' @param tracers The choice of tracers to plot. If there are more than two
 #' tracers, it is recommended to plot every pair of tracers to determine
 #' whether the mixtures lie in the mixing polygon defined by the sources
@@ -110,7 +110,7 @@
 #'   title = "Isospace plot of Inger et al Geese data"
 #' ) #'
 #' @export
-plot.simmr_output <-
+plot.cosimmr_output <-
   function(x,
            tracers = c(1, 2),
            title = "Tracers plot",
@@ -123,7 +123,7 @@ plot.simmr_output <-
            colour = TRUE,
            ...) {
     
-    
+    if (inherits(x, "cosimmr_output") == TRUE) {
     
     # Get mixtures to match current group(s)
     curr_rows <- which(x$input$group_int %in% group)
@@ -249,4 +249,5 @@ plot.simmr_output <-
     
     print(g)
     invisible(g)
+    }
   }

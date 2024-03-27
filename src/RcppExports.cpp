@@ -13,7 +13,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // dmvnrm_arma_fast
 arma::vec dmvnrm_arma_fast(arma::mat const& x, arma::rowvec const& mean, arma::mat const& sigma, bool const logd);
-RcppExport SEXP _simmrcovpackage_dmvnrm_arma_fast(SEXP xSEXP, SEXP meanSEXP, SEXP sigmaSEXP, SEXP logdSEXP) {
+RcppExport SEXP _cosimmr_dmvnrm_arma_fast(SEXP xSEXP, SEXP meanSEXP, SEXP sigmaSEXP, SEXP logdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -27,7 +27,7 @@ END_RCPP
 }
 // crossprod
 NumericMatrix crossprod(NumericMatrix X);
-RcppExport SEXP _simmrcovpackage_crossprod(SEXP XSEXP) {
+RcppExport SEXP _cosimmr_crossprod(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -38,7 +38,7 @@ END_RCPP
 }
 // matmult
 NumericMatrix matmult(NumericMatrix x, NumericMatrix y);
-RcppExport SEXP _simmrcovpackage_matmult(SEXP xSEXP, SEXP ySEXP) {
+RcppExport SEXP _cosimmr_matmult(SEXP xSEXP, SEXP ySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -50,7 +50,7 @@ END_RCPP
 }
 // rMVNormCpp
 NumericMatrix rMVNormCpp(const double n, const arma::vec mu, const NumericMatrix U);
-RcppExport SEXP _simmrcovpackage_rMVNormCpp(SEXP nSEXP, SEXP muSEXP, SEXP USEXP) {
+RcppExport SEXP _cosimmr_rMVNormCpp(SEXP nSEXP, SEXP muSEXP, SEXP USEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -63,7 +63,7 @@ END_RCPP
 }
 // solvearma
 NumericMatrix solvearma(const NumericMatrix X);
-RcppExport SEXP _simmrcovpackage_solvearma(SEXP XSEXP) {
+RcppExport SEXP _cosimmr_solvearma(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -74,7 +74,7 @@ END_RCPP
 }
 // sim_thetacpp
 NumericMatrix sim_thetacpp(int S, NumericVector lambda, int n_sources, int n_tracers, int n_cov);
-RcppExport SEXP _simmrcovpackage_sim_thetacpp(SEXP SSEXP, SEXP lambdaSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP n_covSEXP) {
+RcppExport SEXP _cosimmr_sim_thetacpp(SEXP SSEXP, SEXP lambdaSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP n_covSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -89,7 +89,7 @@ END_RCPP
 }
 // hfn
 NumericMatrix hfn(NumericVector theta, int n_sources, int n, int n_cov, NumericMatrix x_scaled);
-RcppExport SEXP _simmrcovpackage_hfn(SEXP thetaSEXP, SEXP n_sourcesSEXP, SEXP nSEXP, SEXP n_covSEXP, SEXP x_scaledSEXP) {
+RcppExport SEXP _cosimmr_hfn(SEXP thetaSEXP, SEXP n_sourcesSEXP, SEXP nSEXP, SEXP n_covSEXP, SEXP x_scaledSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -104,7 +104,7 @@ END_RCPP
 }
 // hcpp
 double hcpp(int n_sources, int n_isotopes, int n_covariates, NumericVector beta_prior, NumericMatrix x_scaled, NumericMatrix concentrationmeans, NumericMatrix sourcemeans, NumericMatrix correctionmeans, NumericMatrix corrsds, NumericMatrix sourcesds, NumericVector theta, NumericMatrix y, NumericVector c_0);
-RcppExport SEXP _simmrcovpackage_hcpp(SEXP n_sourcesSEXP, SEXP n_isotopesSEXP, SEXP n_covariatesSEXP, SEXP beta_priorSEXP, SEXP x_scaledSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP thetaSEXP, SEXP ySEXP, SEXP c_0SEXP) {
+RcppExport SEXP _cosimmr_hcpp(SEXP n_sourcesSEXP, SEXP n_isotopesSEXP, SEXP n_covariatesSEXP, SEXP beta_priorSEXP, SEXP x_scaledSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP thetaSEXP, SEXP ySEXP, SEXP c_0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -127,7 +127,7 @@ END_RCPP
 }
 // log_q_cpp
 double log_q_cpp(NumericVector theta, NumericVector lambda, int n_sources, int n_tracers, int S, int n_covariates);
-RcppExport SEXP _simmrcovpackage_log_q_cpp(SEXP thetaSEXP, SEXP lambdaSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP SSEXP, SEXP n_covariatesSEXP) {
+RcppExport SEXP _cosimmr_log_q_cpp(SEXP thetaSEXP, SEXP lambdaSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP SSEXP, SEXP n_covariatesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -143,7 +143,7 @@ END_RCPP
 }
 // delta_lqltcpp
 NumericVector delta_lqltcpp(NumericVector lambda, NumericVector theta, double eps, int n_sources, int n_tracers, int n_covariates, int S);
-RcppExport SEXP _simmrcovpackage_delta_lqltcpp(SEXP lambdaSEXP, SEXP thetaSEXP, SEXP epsSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP n_covariatesSEXP, SEXP SSEXP) {
+RcppExport SEXP _cosimmr_delta_lqltcpp(SEXP lambdaSEXP, SEXP thetaSEXP, SEXP epsSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP n_covariatesSEXP, SEXP SSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -160,7 +160,7 @@ END_RCPP
 }
 // h_lambdacpp
 double h_lambdacpp(int n_sources, int n_isotopes, NumericVector beta_prior, int n_covariates, int S, NumericMatrix concentrationmeans, NumericMatrix sourcemeans, NumericMatrix correctionmeans, NumericMatrix corrsds, NumericMatrix sourcesds, NumericVector theta, NumericMatrix y, NumericVector lambda, NumericMatrix x_scaled, NumericVector c_0);
-RcppExport SEXP _simmrcovpackage_h_lambdacpp(SEXP n_sourcesSEXP, SEXP n_isotopesSEXP, SEXP beta_priorSEXP, SEXP n_covariatesSEXP, SEXP SSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP thetaSEXP, SEXP ySEXP, SEXP lambdaSEXP, SEXP x_scaledSEXP, SEXP c_0SEXP) {
+RcppExport SEXP _cosimmr_h_lambdacpp(SEXP n_sourcesSEXP, SEXP n_isotopesSEXP, SEXP beta_priorSEXP, SEXP n_covariatesSEXP, SEXP SSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP thetaSEXP, SEXP ySEXP, SEXP lambdaSEXP, SEXP x_scaledSEXP, SEXP c_0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -185,7 +185,7 @@ END_RCPP
 }
 // cov_mat_cpp
 NumericMatrix cov_mat_cpp(NumericMatrix x, NumericMatrix y);
-RcppExport SEXP _simmrcovpackage_cov_mat_cpp(SEXP xSEXP, SEXP ySEXP) {
+RcppExport SEXP _cosimmr_cov_mat_cpp(SEXP xSEXP, SEXP ySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -197,7 +197,7 @@ END_RCPP
 }
 // nabla_LB_cpp
 NumericVector nabla_LB_cpp(NumericVector lambda, NumericMatrix theta, int n_sources, int n_tracers, NumericVector beta_prior, int S, int n_covariates, NumericMatrix x_scaled, NumericMatrix concentrationmeans, NumericMatrix sourcemeans, NumericMatrix correctionmeans, NumericMatrix corrsds, NumericMatrix sourcesds, NumericMatrix y, NumericVector c, NumericVector c_0);
-RcppExport SEXP _simmrcovpackage_nabla_LB_cpp(SEXP lambdaSEXP, SEXP thetaSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP beta_priorSEXP, SEXP SSEXP, SEXP n_covariatesSEXP, SEXP x_scaledSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP ySEXP, SEXP cSEXP, SEXP c_0SEXP) {
+RcppExport SEXP _cosimmr_nabla_LB_cpp(SEXP lambdaSEXP, SEXP thetaSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP beta_priorSEXP, SEXP SSEXP, SEXP n_covariatesSEXP, SEXP x_scaledSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP ySEXP, SEXP cSEXP, SEXP c_0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -223,7 +223,7 @@ END_RCPP
 }
 // control_var_cpp
 NumericVector control_var_cpp(NumericVector lambda, NumericMatrix theta, int n_sources, int n_tracers, NumericVector beta_prior, int n_covariates, NumericMatrix x_scaled, NumericMatrix concentrationmeans, NumericMatrix sourcemeans, NumericMatrix correctionmeans, NumericMatrix corrsds, NumericMatrix sourcesds, NumericMatrix y, NumericVector c_0);
-RcppExport SEXP _simmrcovpackage_control_var_cpp(SEXP lambdaSEXP, SEXP thetaSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP beta_priorSEXP, SEXP n_covariatesSEXP, SEXP x_scaledSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP ySEXP, SEXP c_0SEXP) {
+RcppExport SEXP _cosimmr_control_var_cpp(SEXP lambdaSEXP, SEXP thetaSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP beta_priorSEXP, SEXP n_covariatesSEXP, SEXP x_scaledSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP ySEXP, SEXP c_0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -247,7 +247,7 @@ END_RCPP
 }
 // LB_lambda_cpp
 double LB_lambda_cpp(NumericMatrix theta, NumericVector lambda, NumericVector p, int n_sources, int n_isotopes, NumericVector beta_prior, int n_covariates, NumericMatrix x_scaled, NumericMatrix concentrationmeans, NumericMatrix sourcemeans, NumericMatrix correctionmeans, NumericMatrix corrsds, NumericMatrix sourcesds, NumericMatrix y, NumericVector c_0);
-RcppExport SEXP _simmrcovpackage_LB_lambda_cpp(SEXP thetaSEXP, SEXP lambdaSEXP, SEXP pSEXP, SEXP n_sourcesSEXP, SEXP n_isotopesSEXP, SEXP beta_priorSEXP, SEXP n_covariatesSEXP, SEXP x_scaledSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP ySEXP, SEXP c_0SEXP) {
+RcppExport SEXP _cosimmr_LB_lambda_cpp(SEXP thetaSEXP, SEXP lambdaSEXP, SEXP pSEXP, SEXP n_sourcesSEXP, SEXP n_isotopesSEXP, SEXP beta_priorSEXP, SEXP n_covariatesSEXP, SEXP x_scaledSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP ySEXP, SEXP c_0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -272,7 +272,7 @@ END_RCPP
 }
 // run_VB_cpp
 NumericVector run_VB_cpp(NumericVector lambdastart, int n_sources, int n_tracers, int n_covariates, int n, NumericVector beta_prior, NumericMatrix concentrationmeans, NumericMatrix sourcemeans, NumericMatrix correctionmeans, NumericMatrix corrsds, NumericMatrix sourcesds, NumericMatrix y, NumericMatrix x_scaled, int S, int P, double beta_1, double beta_2, int tau, double eps_0, int t_W, NumericVector c_prior);
-RcppExport SEXP _simmrcovpackage_run_VB_cpp(SEXP lambdastartSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP n_covariatesSEXP, SEXP nSEXP, SEXP beta_priorSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP ySEXP, SEXP x_scaledSEXP, SEXP SSEXP, SEXP PSEXP, SEXP beta_1SEXP, SEXP beta_2SEXP, SEXP tauSEXP, SEXP eps_0SEXP, SEXP t_WSEXP, SEXP c_priorSEXP) {
+RcppExport SEXP _cosimmr_run_VB_cpp(SEXP lambdastartSEXP, SEXP n_sourcesSEXP, SEXP n_tracersSEXP, SEXP n_covariatesSEXP, SEXP nSEXP, SEXP beta_priorSEXP, SEXP concentrationmeansSEXP, SEXP sourcemeansSEXP, SEXP correctionmeansSEXP, SEXP corrsdsSEXP, SEXP sourcesdsSEXP, SEXP ySEXP, SEXP x_scaledSEXP, SEXP SSEXP, SEXP PSEXP, SEXP beta_1SEXP, SEXP beta_2SEXP, SEXP tauSEXP, SEXP eps_0SEXP, SEXP t_WSEXP, SEXP c_priorSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -303,26 +303,26 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_simmrcovpackage_dmvnrm_arma_fast", (DL_FUNC) &_simmrcovpackage_dmvnrm_arma_fast, 4},
-    {"_simmrcovpackage_crossprod", (DL_FUNC) &_simmrcovpackage_crossprod, 1},
-    {"_simmrcovpackage_matmult", (DL_FUNC) &_simmrcovpackage_matmult, 2},
-    {"_simmrcovpackage_rMVNormCpp", (DL_FUNC) &_simmrcovpackage_rMVNormCpp, 3},
-    {"_simmrcovpackage_solvearma", (DL_FUNC) &_simmrcovpackage_solvearma, 1},
-    {"_simmrcovpackage_sim_thetacpp", (DL_FUNC) &_simmrcovpackage_sim_thetacpp, 5},
-    {"_simmrcovpackage_hfn", (DL_FUNC) &_simmrcovpackage_hfn, 5},
-    {"_simmrcovpackage_hcpp", (DL_FUNC) &_simmrcovpackage_hcpp, 13},
-    {"_simmrcovpackage_log_q_cpp", (DL_FUNC) &_simmrcovpackage_log_q_cpp, 6},
-    {"_simmrcovpackage_delta_lqltcpp", (DL_FUNC) &_simmrcovpackage_delta_lqltcpp, 7},
-    {"_simmrcovpackage_h_lambdacpp", (DL_FUNC) &_simmrcovpackage_h_lambdacpp, 15},
-    {"_simmrcovpackage_cov_mat_cpp", (DL_FUNC) &_simmrcovpackage_cov_mat_cpp, 2},
-    {"_simmrcovpackage_nabla_LB_cpp", (DL_FUNC) &_simmrcovpackage_nabla_LB_cpp, 16},
-    {"_simmrcovpackage_control_var_cpp", (DL_FUNC) &_simmrcovpackage_control_var_cpp, 14},
-    {"_simmrcovpackage_LB_lambda_cpp", (DL_FUNC) &_simmrcovpackage_LB_lambda_cpp, 15},
-    {"_simmrcovpackage_run_VB_cpp", (DL_FUNC) &_simmrcovpackage_run_VB_cpp, 21},
+    {"_cosimmr_dmvnrm_arma_fast", (DL_FUNC) &_cosimmr_dmvnrm_arma_fast, 4},
+    {"_cosimmr_crossprod", (DL_FUNC) &_cosimmr_crossprod, 1},
+    {"_cosimmr_matmult", (DL_FUNC) &_cosimmr_matmult, 2},
+    {"_cosimmr_rMVNormCpp", (DL_FUNC) &_cosimmr_rMVNormCpp, 3},
+    {"_cosimmr_solvearma", (DL_FUNC) &_cosimmr_solvearma, 1},
+    {"_cosimmr_sim_thetacpp", (DL_FUNC) &_cosimmr_sim_thetacpp, 5},
+    {"_cosimmr_hfn", (DL_FUNC) &_cosimmr_hfn, 5},
+    {"_cosimmr_hcpp", (DL_FUNC) &_cosimmr_hcpp, 13},
+    {"_cosimmr_log_q_cpp", (DL_FUNC) &_cosimmr_log_q_cpp, 6},
+    {"_cosimmr_delta_lqltcpp", (DL_FUNC) &_cosimmr_delta_lqltcpp, 7},
+    {"_cosimmr_h_lambdacpp", (DL_FUNC) &_cosimmr_h_lambdacpp, 15},
+    {"_cosimmr_cov_mat_cpp", (DL_FUNC) &_cosimmr_cov_mat_cpp, 2},
+    {"_cosimmr_nabla_LB_cpp", (DL_FUNC) &_cosimmr_nabla_LB_cpp, 16},
+    {"_cosimmr_control_var_cpp", (DL_FUNC) &_cosimmr_control_var_cpp, 14},
+    {"_cosimmr_LB_lambda_cpp", (DL_FUNC) &_cosimmr_LB_lambda_cpp, 15},
+    {"_cosimmr_run_VB_cpp", (DL_FUNC) &_cosimmr_run_VB_cpp, 21},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_simmrcovpackage(DllInfo *dll) {
+RcppExport void R_init_cosimmr(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

@@ -1,4 +1,4 @@
-Package: simmrcovpackage
+Package: cosimmr
 Type: Package
 Title: A Package For Running Stable Isotope Mixing Models With Covariates In R
 Version: 1.0
@@ -21,7 +21,9 @@ Imports: Rcpp (>= 1.0.10),
     checkmate,
     Rcpp,
     GGally,
-    checkmate
+    checkmate,
+    R2jags,
+    ggplot2
 Suggests: 
     knitr,
     rmarkdown,
